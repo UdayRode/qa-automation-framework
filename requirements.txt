@@ -1,0 +1,15 @@
+pytest==9.2.0
+pytest-playwright==0.10.0
+playwright==1.65.2
+pytest-xdist==3.8.0
+pytest-rerunfailures==16.7
+pytest-html==4.2.0
+pytest-cov==7.1.0
+allure-pytest==2.16.2
+requests==2.34.2
+httpx==0.28.1
+pydantic==2.14.4
+jsonschema==4.26.0
+Faker==40.54.0
+python-dotenv==1.2.4
+PyYAML==6.0.3
