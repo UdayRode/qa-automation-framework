@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+addopts = "-v --strict-markers"
+markers = [
+    "smoke: quick critical tests",
+    "regression: full test suite",
+]

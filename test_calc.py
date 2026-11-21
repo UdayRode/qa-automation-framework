@@ -1,8 +1,9 @@
 from calc import add , multiply, subs , divide
 import pytest
 
+@pytest.mark.smoke
 def test_add():
-    assert add(2,3) == 5
+    assert add(2, 3) == 5
 
 def test_add_decimals():
     assert add(1.5 , 1.5) == 3
@@ -63,3 +64,30 @@ def test_divide_by_negative():
 
 def test_divide_with_bigger_number():
     assert divide(1, 3) == pytest.approx(0.3333, rel=1e-3)
+
+
+# @pytest.mark.parametrize("a, b, expected", [
+#     (2, 3, 5),
+#     (0, 5, 5),
+#     (-2, -3, -5),
+#     (0, -3, -3),
+#     (0, 0, 0)
+# ])
+
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 3, 5),
+    (0, 5, 5),
+    (-2, -3, -5),
+], ids=["positive", "zero", "negative"])
+def test_add_many(a, b, expected):
+    assert add(a, b) == expected
+
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 3, 6),
+    (0, 5, 0),
+    (-2, -3, 6),
+    (-2, 3, -6),
+    (0.1, 3, pytest.approx(0.3)),
+], ids=["positive", "zero", "negative", "negative_positive", "small_decimal"])
+def test_multiply_many(a, b, expected):
+    assert multiply(a, b) == expected
