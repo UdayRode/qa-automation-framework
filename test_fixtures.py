@@ -16,9 +16,9 @@ import pytest
 #     yield "chrome"                    # ⏸️ test runs here
 #     print("\n🔴 Closing browser")     # cleanup (after the test)
 
-def test_open_site(browser):
-    print(f"\n🌐 Using {browser}")
-    assert browser == "chrome"
+def test_open_site(fake_browser):
+    print(f"\n🌐 Using {fake_browser}")
+    assert fake_browser == "chrome"
 
 def test_user_name(user):
     assert user["name"] == "Uday"

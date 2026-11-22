@@ -6,7 +6,7 @@ def user():
     return {"name": "Uday", "age": 25}
 
 @pytest.fixture
-def browser():
+def fake_browser():
     print("\n🟢 Opening browser")     # setup (before the test)
     yield "chrome"                    # ⏸️ test runs here
     print("\n🔴 Closing browser")     # cleanup (after the test)
