@@ -1,5 +1,5 @@
 [tool.pytest.ini_options]
-addopts = "-v --strict-markers"
+addopts = "-v --strict-markers --screenshot only-on-failure --video retain-on-failure --tracing retain-on-failure"
 markers = [
     "smoke: quick critical tests",
     "regression: full test suite",
@@ -7,3 +7,6 @@ markers = [
 base_url = "https://www.saucedemo.com"
 testpaths = ["tests"]
 pythonpath = ["."]
+filterwarnings = [
+    "ignore:Session-scoped fixtures defined as instance methods",
+]
