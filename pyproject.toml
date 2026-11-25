@@ -4,3 +4,6 @@ markers = [
     "smoke: quick critical tests",
     "regression: full test suite",
 ]
+base_url = "https://www.saucedemo.com"
+testpaths = ["tests"]
+pythonpath = ["."]
