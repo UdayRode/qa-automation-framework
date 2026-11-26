@@ -7,7 +7,7 @@ class CheckoutPage:
         self.first_name = page.get_by_placeholder("First Name")
         self.last_name = page.get_by_placeholder("Last Name")
         self.postal_code = page.get_by_placeholder("Zip/Postal Code")
-        self.continue_button = page.get_by_role("button", name="Continue")
+        self.continue_button = page.get_by_role("button", name="Continue", exact=True)
         self.finish_button = page.get_by_role("button", name="Finish")
         self.complete_header = page.locator('[data-test="complete-header"]')
         self.error_message = page.locator('[data-test="error"]')

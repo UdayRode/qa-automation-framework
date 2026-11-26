@@ -1,6 +1,10 @@
 import pytest
 from playwright.sync_api import expect
 from pages.login_page import LoginPage
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 @pytest.fixture(scope="session") #scope = how long the fixture lives:
 def user():
@@ -34,8 +38,9 @@ def test_user_from_conftest(user):
 
 @pytest.fixture
 def logged_in_page(page):
-    login_page = LoginPage(page)                      # 1. call the chef
-    login_page.open()                                 # 2. open the login page
-    login_page.login("standard_user", "secret_sauce") # 3. log in
-    expect(page).to_have_url("/inventory.html")       # 4. make sure it worked
-    return page                                       # 5. serve the dish 🍽️
+    login_page = LoginPage(page)                                                    # 1. call the chef
+    login_page.open()                                                               # 2. open the login page
+    # login_page.login("standard_user", "secret_sauce")                             # 3. log in
+    login_page.login(os.getenv("SAUCE_USERNAME"), os.getenv("SAUCE_PASSWORD"))  
+    expect(page).to_have_url("/inventory.html")                                     # 4. make sure it worked
+    return page                                                                     # 5. serve the dish 🍽️
