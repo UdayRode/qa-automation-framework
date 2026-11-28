@@ -28,3 +28,6 @@ def test_user_age(user):
 
 def test_user_age_over18(user):
     assert user["age"] > 18
+
+def test_user_from_conftest(user):
+    assert user["name"] == "Uday"

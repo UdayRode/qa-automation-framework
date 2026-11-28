@@ -17,8 +17,7 @@ def fake_browser():
     yield "chrome"                    # ⏸️ test runs here
     print("\n🔴 Closing browser")     # cleanup (after the test)
 
-def test_user_from_conftest(user):
-    assert user["name"] == "Uday"
+
 
 
 # @pytest.fixture

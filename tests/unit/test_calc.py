@@ -35,7 +35,7 @@ def test_multiply_2_numbers():
 
 #divide
 def test_divide():
-    assert (6/2) == 3
+    assert divide(6,2) == 3
 
 # def test_divide_by_zero():
 #     divide(10, 0) # ZeroDivisionError
@@ -83,11 +83,22 @@ def test_add_many(a, b, expected):
     assert add(a, b) == expected
 
 @pytest.mark.parametrize("a, b, expected", [
+    (5, 3, 2),
+    (5, 0, 5),
+    (-5, -3, -2),
+    (3, 5, -2),
+], ids=["positive", "minus_zero", "negative_numbers", "result_below_zero"])
+def test_subs_many(a, b, expected):
+    assert subs(a, b) == expected
+
+@pytest.mark.parametrize("a, b, expected", [
     (2, 3, 6),
     (0, 5, 0),
     (-2, -3, 6),
     (-2, 3, -6),
     (0.1, 3, pytest.approx(0.3)),
 ], ids=["positive", "zero", "negative", "negative_positive", "small_decimal"])
+
 def test_multiply_many(a, b, expected):
     assert multiply(a, b) == expected
+
